@@ -63,4 +63,30 @@ public class Smartphone implements Radio, GPS{
         System.out.println("Radio stopped");
         return false;
     }
+
+    public void addContact(Contact addedContact) {
+        contactList.add(addedContact);
+    }
+
+    public Contact getContact(int i) {
+        return contactList.get(i);
+    }
+
+    public Contact getContactByName(String contactName) {
+        for (Contact contact : contactList) {
+            if (contact.getName().equals(contactName)) {
+                return contact;
+            }
+        }
+        return null;
+    }
+    public List<Contact> removeContactByName(String removedContact) {
+        for(int i =0; i<contactList.size(); i++) {
+            if (contactList.get(i).getName().equals(removedContact)) {
+                contactList.remove(i);
+                return contactList;
+            }
+        }
+        return null;
+    }
 }
